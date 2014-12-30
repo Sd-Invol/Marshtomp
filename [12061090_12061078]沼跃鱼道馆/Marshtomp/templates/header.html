@@ -1,0 +1,37 @@
+$def with(user , admin)
+      <div class="row demo-row">
+        <div class="col-xs-12">
+          <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                <span class="sr-only">Toggle navigation</span>
+              </button>
+              <a class="navbar-brand" href="/">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-01">
+              <ul class="nav navbar-nav navbar-left">
+                <li><a href="/problem">ProblemSet</a></li>
+                <li><a href="/group">Group</a></li>
+				<li><a href="/message">Message</a></li>
+
+				$if admin:
+					<li><a href="/manage">Manage</a></li>				
+				$elif user:
+					<li><a href="/user">$user</a></li>				
+				$if user:
+					<li><a href="/?logout">Logout</a></li>
+              </ul>
+
+				<form class="navbar-form navbar-right" action="/" method="post">
+					$if not user:
+						<input name="name" class="span2" placeholder="Name" type="text">
+						<input name="psword" class="span2" placeholder="Password" type="password">
+						<input name="admin"  type="checkbox">admin
+						<button type="submit" class="btn" >Login</button>
+					
+				</form>
+
+            </div><!-- /.navbar-collapse -->
+          </nav><!-- /navbar -->
+        </div>
+      </div> <!-- /row -->

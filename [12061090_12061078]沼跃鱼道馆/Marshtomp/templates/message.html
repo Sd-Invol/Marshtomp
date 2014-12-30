@@ -1,0 +1,44 @@
+$def with (comments , user , admin)
+
+<h3>Message Board</h3><HR>
+$if comments != []:
+	$for i in comments:
+		<div>
+			<div>
+				<b>$i["name"]</b>:
+				<span style="float:right;color:gray;">
+				$i["time"]
+				$if admin:
+					<a  href="/delete?type=comments&id=$i['id']" >Delete</a>
+				</span>
+			</div>
+			<div class="well" style="margin-left:10%;">
+				$i["string"]
+			</div>
+			<HR>
+		</div>
+$else:
+		<div>
+	        <div>
+				<img src="/static/error.jpg"></img>
+                <span style="float:right;color:gray;"></span>
+            </div>
+            <div class="well" style="margin-left:10%;">
+                Nobody commented there.
+            </div>
+			<HR>
+		</div>
+
+$if user and not admin:
+	<div style="margin-left:15%;">
+		<form action="/message" method="post">
+			<textarea style="resize:none;width:75%;" placeholder="Put your comment in there" name="string"></textarea>
+			<button type="submit" class="btn btn-lg btn-success">Submit!</button>
+		</form>
+	</div>
+$if not user:
+	<div style="float:right">
+		<p>
+			Comments after Login.
+		</p>
+	</div>

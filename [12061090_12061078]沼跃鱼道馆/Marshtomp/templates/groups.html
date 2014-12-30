@@ -1,0 +1,29 @@
+$def with (groups)
+<h3>Groups</h3><HR>
+$for g in groups:
+	<div class="row demo-row" color = "gray">
+		<div class="col-xs-2">
+
+			<div class="controls" >
+				<img id="image" style="width:150px;height:150px;" src="
+				$if g['imgurl']:
+					$g['imgurl']
+				$else:
+					/static/default.png
+				"></img>
+			</div>  
+		</div>
+				
+		<div class="col-xs-4">
+			<p>
+				<a href="/group?id=$g['id']"><h6>$g['name']</h6></a>
+			</p>
+		</div>
+		<div class="col-xs-6">
+			<h6>Abstract</h6>
+			<p>
+				$g['abstract']
+			</p>
+		</div>
+	</div>
+	<HR>

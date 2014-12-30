@@ -1,0 +1,51 @@
+$def with(user)
+	<form class="form-horizontal" accept-charset="UTF-8" action="/edit?type=user&id=$user['id']" method="post">
+		<fieldset>	
+			<div class="control-group">
+				<div class="controls">
+					$user['name']
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="email">Email</label>
+				<div class="controls">
+					<input id="email" name="email" value="$user['email']" placeholder="email" type="email">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="gender">Gender</label>
+				<div class="controls">
+					<input name="gender" type="radio" value="1" checked="">♂
+					<input name="gender" type="radio" value="0">♀
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="psword">Password</label>
+				<div class="controls">
+					<input id="psword" name="psword" value="$user['psword']" placeholder="password" type="password">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="psword_confirm">Password confirm</label>
+				<div class="controls">
+					<input id="psword_confirm" name="psword_confirm" placeholder="password confirm" type="password">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="school">School</label>
+				<div class="controls">
+					<input id="school" name="school" value="$user['school']" placeholder="school" type="text">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="major">Major</label>
+				<div class="controls">
+					<input id="major" name="major" value="$user['major']" placeholder="major"type="text">
+				</div>
+			</div>
+
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary" >Submit!</button>
+			</div>
+		</fieldset>
+	</form>

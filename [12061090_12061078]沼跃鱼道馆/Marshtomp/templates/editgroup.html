@@ -1,0 +1,41 @@
+$def with(group)
+<div class="hero-unit">	
+	<form class="form-horizontal" accept-charset="UTF-8" action="/edit?type=group&id=$group['id']" method="post">
+		<fieldset>	
+			<div class="control-group">
+				<label class="control-label" for="image">Image</label>
+				<div class="controls" style="width:150px;height:150px;">
+					<a class="thumbnail">
+					<img id="image" src="$group['imgurl']"></img>
+					</a>
+				</div>  
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="name">Name</label>
+				<div class="controls">
+					<input id="title" name="name" value="$group['name']" placeholder="name" type="name">
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="name">Image url</label>
+				<div class="controls">
+					<input id="imgurl" name="imgurl" value="$group['imgurl']" placeholder="imgurl" type="imgurl">
+					<a class="btn btn-lg btn-info" onclick="get_image()">Get!</a>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="abstract">Abstract</label>
+				<div class="controls">
+					<textarea rows="10" cols="60" id="abstract" name="abstract" placeholder="abstract" type="text">$group['abstract']</textarea>
+				</div>
+			</div>
+
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary" >Submit!</button>
+			</div>
+		</fieldset>
+	</form>
+</div>          

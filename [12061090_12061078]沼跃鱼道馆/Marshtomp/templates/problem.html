@@ -1,0 +1,36 @@
+$def with(pro , tags , user , adm , flag)
+
+<div>
+	<h3>
+	$pro["title"]
+	$if user:
+		$if not flag:
+			<a href="/favo?user_id=$user['id']&pro_id=$pro['id']"><img src="/static/img/no.png"></img></a>
+		$else:				
+			<a href="/favo?user_id=$user['id']&pro_id=$pro['id']"><img src="/static/img/yes.png"></img></a>
+	</h3>
+
+	<h4>Problem Description</h4>
+	<p>$:pro["description"].replace("\r\n" , "<br/>")</p>
+	<h4>Input Formal</h4>
+	<p>$:pro["input_formal"].replace("\r\n" , "<br/>")</p>
+	<h4>Output Formal</h4>
+	<p>$:pro["output_formal"].replace("\r\n" , "<br/>")</p>
+	<h4>Sample Input</h4>
+	<pre><code>$pro["sample_input"]</code></pre>
+	<h4>Sample Output</h4>
+	<pre>$pro["sample_output"]</pre>
+</div>
+<h4 class="demo-panel-title">Tags</h4>
+<div class="tagsinput-primary">
+	<input name="tagsinput" class="tagsinput" data-role="tagsinput" value="
+		$for i in tags:
+			$i['name'] ,
+	" />
+</div>
+
+<a class="btn btn-success btn-lg btn-large"href="#">Submit</a>
+$if adm:
+	<a class="btn btn-warning btn-lg btn-large"href="edit?type=problem&id=$pro['id']">Edit</a>
+	<a class="btn btn-danger btn-lg btn-large"href="delete?type=problem&id=$pro['id']">Delete</a>
+

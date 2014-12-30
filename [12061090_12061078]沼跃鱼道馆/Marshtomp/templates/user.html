@@ -1,0 +1,57 @@
+$def with(user , G , P)
+
+<div class="container">
+
+		<div class="col-xs-6">
+			<h3>User</h3>
+			<div>
+				<span style="color:gray;">Name:</span>
+				<span>$user["name"]</span>
+			</div>
+			<div>
+				<span style="color:gray;">E-mail:</span>
+				<span>$user["email"]</span>
+			</div>
+			<div>
+				<span style="color:gray;">Gender:</span>
+				<span>
+				$if user["gender"]==1:
+					♂
+				$else:
+					♀</span>
+			</div>
+
+			<div>
+				<span style="color:gray;">School:</span>
+				<span>$user["school"]</span>
+			</div>
+			<div>
+				<span style="color:gray;">Major:</span>
+				<span>$user["major"]</span>
+			</div>
+
+			<a class="btn btn-primary" href="edit?type=user&id=$user['id']">Edit</a>
+		
+		</div>
+		<div class="col-xs-6">
+			<div>			
+				<h3>Favorite Problems</h3>
+					$if P == ():
+						<h6>None</h6>
+					$else:
+						$for p in P:
+							<li>$p["title"]</li>
+			</div>
+			<div>			
+				<h3>Joined Groups</h3>
+					$if G == ():
+						<h6>None</h6>
+					$else:
+						$for g in G:
+							<li>$g["name"]</li>
+			</div>
+			
+		</div>		
+		
+</div>
+

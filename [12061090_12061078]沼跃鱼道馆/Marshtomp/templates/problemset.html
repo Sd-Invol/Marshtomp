@@ -1,0 +1,27 @@
+$def with (list , tags)
+<h3>Problem Set</h3><HR>
+<div>
+	<h4>Tags:</h4>
+	<div class="col-xs-8">
+		<div class="tagsinput-warning">
+			<input name="tagsinput" class="tagsinput" data-role="tagsinput" value="
+				$for i in tags:
+					$i['name'] , 
+			" />
+		</div>
+	</div>
+	<br/>
+</div>
+<br/><HR>
+$for p in list:
+	<div class="row demo-row" color = "gray">
+		<div class="col-xs-4" style="margin-left: 100px;">
+			<p>
+				<a href="/problem?id=$p['id']"><h6>$p['title']</h6></a>
+			</p>
+		</div>
+		<div class="col-xs-8">
+
+		</div>
+	</div>
+	<HR>
